@@ -1,24 +1,50 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| nickname           | string              | null: false             |
+| email              | string              | null: false             |
+| password           | string              | null: false             |
+| family_name        | string              | null: false             |
+| last_name          | string              | null: false             |
+| family_name_kana   | string              | null: false             |
+| last_name_kana     | string              | null: false             |
+| birthday           | text                | null: false             |
 
-* Ruby version
+### Association
 
-* System dependencies
+* has_many :items
+* has_many :listings
 
-* Configuration
+## item table
 
-* Database creation
+| Column                              | Type       | Options           |
+|-------------------------------------|------------|-------------------|
+| item_name                           | string     | null: false       |
+| item_text                           | text       | null: false       |
+| price                               | text       | null: false       |
+| category                            | text       | null: false       |
+| status                              | text       | null: false       |
+| delivery_fee                        | text       | null: false       |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- belongs_to :listing
+- has_one :item
 
-* Services (job queues, cache servers, search engines, etc.)
+## listing table
 
-* Deployment instructions
+| Column               | Type       | Options           |
+|----------------------|------------|-------------------|
+| listing_username    | string      | null: false       |
+| shipment_source      | string     | null: false       |
+| date                 | text       | null: false       |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :item
