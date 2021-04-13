@@ -25,8 +25,8 @@
 | item_name                           | string     | null: false       |
 | item_text                           | text       | null: false       |
 | price                               | integer    | null: false       |
-| category_id                         | text       | null: false       |
-| status_id                           | text       | null: false       |
+| category_id                         | integer    | null: false       |
+| status_id                           | integer    | null: false       |
 | delivery_fee_id                     | integer    | null: false       |
 | burden_id                           | integer    | null: false       |
 | shipping_day_id                     | integer    | null: false       |
@@ -48,12 +48,10 @@
 | address              | string      | null: false       |
 | build_name           | string      |                   |
 | phone_number         | integer     | null: false       |
-| user                 | references  | null: false, foreign_key: product_purchase|
+| product_purchase     | references  | null: false, foreign_key: product_purchase|
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
 - belongs_to :product_purchase
 
 ## product_purchases table
