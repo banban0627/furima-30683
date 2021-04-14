@@ -45,6 +45,7 @@
 |----------------------|------------|-------------------|
 | prefecture_id        | integer     | null: false       |
 | municipality         | string      | null: false       |
+| postal_code          | string      | null: false       |
 | address              | string      | null: false       |
 | build_name           | string      |                   |
 | phone_number         | string      | null: false       |
